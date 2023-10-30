@@ -1,0 +1,26 @@
+{% extends 'base0.html' %}
+{% load static %}
+
+{% block title %}
+<title>Chatapp | Home</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+
+                <div class="">
+                    <a href="{% url 'chat' %}">
+                                <h4 class="card-title text-center">congratulations your request was successfully processed you can now chat with your friend freely: {{ user.username }}</h4>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

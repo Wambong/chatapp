@@ -1,0 +1,42 @@
+{% extends 'base0.html' %}
+{% load static %}
+
+{% block title %}
+<title>Chatapp | Home</title>
+{% endblock %}
+
+<style>
+.body {
+  background-image: url('/static/images/background/index.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  background-attachment: fixed;
+}
+</style>
+{% block content %}
+
+<div class="container body">
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                {% for user in users %}
+                {% if user != request.user %}
+                <div class="card">
+                    <a href="{% url 'create_thread' user.username %}">
+                        <div class="card card-cover h-100 text-white  rounded-5 " style="width: 18rem; margin:0px auto; background-color: rgba(0, 0, 0, 0.5);">
+                            <div class="card-body">
+                                <h4 class="card-title text-center"><i>chat with</i>: <b style="color: skyblue;">{{ user.username }}</b></h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                 {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
